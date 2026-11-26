@@ -402,3 +402,26 @@ footer {
 .chave-pix {
   background: rgba(255, 245, 223, 0.50);
 }
+/* AJUSTE DE OPACIDADE - 65% */
+
+.card {
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.arrecadacao {
+  background: rgba(33, 91, 56, 0.65);
+}
+
+header,
+footer {
+  background: rgba(165, 31, 36, 0.65);
+}
+
+.resumo {
+  background: rgba(255, 255, 255, 0.65);
+}
+
+#listaColaboradores,
+.chave-pix {
+  background: rgba(255, 245, 223, 0.65);
+}
