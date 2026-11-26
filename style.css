@@ -329,3 +329,52 @@ footer small {
     font-size: 15px;
   }
 }
+/* IMAGEM FIXA DE FUNDO */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("natal.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+body {
+  background: #215B38;
+  isolation: isolate;
+}
+
+/* OCULTAR IMAGEM DO BANNER */
+
+.banner {
+  display: none;
+}
+
+/* CARTÕES SEMITRANSPARENTES */
+
+.card {
+  background: rgba(255, 255, 255, 0.90);
+  backdrop-filter: blur(3px);
+}
+
+/* DESTAQUE DA ARRECADAÇÃO */
+
+.arrecadacao {
+  background: rgba(33, 91, 56, 0.93);
+}
+
+/* CABEÇALHO E RODAPÉ */
+
+header,
+footer {
+  background: rgba(165, 31, 36, 0.92);
+}
+
+/* ESPAÇAMENTO ENTRE CARTÕES */
+
+.card {
+  margin-bottom: 30px;
+}
