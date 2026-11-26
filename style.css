@@ -378,3 +378,27 @@ footer {
 .card {
   margin-bottom: 30px;
 }
+/* AJUSTE DE TRANSPARÊNCIA */
+
+.card {
+  background: rgba(255, 255, 255, 0.50);
+  backdrop-filter: none;
+}
+
+.arrecadacao {
+  background: rgba(33, 91, 56, 0.50);
+}
+
+header,
+footer {
+  background: rgba(165, 31, 36, 0.50);
+}
+
+.resumo {
+  background: rgba(255, 255, 255, 0.50);
+}
+
+#listaColaboradores,
+.chave-pix {
+  background: rgba(255, 245, 223, 0.50);
+}
