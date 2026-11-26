@@ -1,0 +1,331 @@
+/* NATAL CRIANÇA FELIZ 2026 */
+
+:root {
+  --vermelho: #A51F24;
+  --verde: #215B38;
+  --dourado: #E8BD63;
+  --creme: #FFF5DF;
+  --branco: #FFFFFF;
+  --texto: #26352D;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--creme);
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+/* CABEÇALHO */
+
+header {
+  background: linear-gradient(
+    135deg, #791419, #A51F24
+  );
+  color: white;
+  text-align: center;
+  padding: 35px 20px;
+  border-bottom: 5px solid var(--dourado);
+}
+
+.decoracao {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+header h1 {
+  font-size: 30px;
+  line-height: 1.2;
+  margin: 10px 0;
+}
+
+header h2 {
+  font-size: 19px;
+  font-weight: normal;
+  margin: 10px 0;
+}
+
+header p {
+  color: var(--dourado);
+  font-size: 15px;
+  margin-bottom: 0;
+}
+
+/* CONTEÚDO PRINCIPAL */
+
+main {
+  max-width: 850px;
+  margin: auto;
+  padding: 20px 15px;
+}
+
+/* IMAGEM DA CAMPANHA */
+
+.banner {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.banner img {
+  display: inline-block;
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 5px 20px #00000020;
+}
+
+.banner img[hidden] {
+  display: none;
+}
+
+/* CARTÕES */
+
+.card {
+  background: var(--branco);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 15px #0000000D;
+  border-top: 3px solid var(--dourado);
+}
+
+.card h2 {
+  color: var(--verde);
+  font-size: 22px;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.card p {
+  margin: 10px 0;
+}
+
+/* ARRECADAÇÃO */
+
+.arrecadacao {
+  background: linear-gradient(
+    135deg, #215B38, #123C24
+  );
+  color: white;
+  text-align: center;
+  padding: 30px 15px;
+  border: 2px solid var(--dourado);
+}
+
+.arrecadacao h2 {
+  color: white;
+  font-size: 20px;
+}
+
+#totalArrecadado {
+  font-size: clamp(24px, 7vw, 44px);
+  font-weight: bold;
+  color: var(--dourado);
+  overflow-wrap: anywhere;
+  margin: 10px 0;
+}
+
+.arrecadacao p {
+  font-size: 14px;
+}
+
+/* PIX */
+
+.chave-pix {
+  background: var(--creme);
+  border: 1px dashed var(--verde);
+  padding: 16px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  color: var(--verde);
+  overflow-wrap: anywhere;
+  margin: 15px 0;
+}
+
+#mensagemPix {
+  text-align: center;
+  color: var(--verde);
+  font-weight: bold;
+}
+
+/* BOTÕES */
+
+button,
+.botao {
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  background: var(--verde);
+  color: white;
+  padding: 15px;
+  margin-top: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+
+button:hover,
+.botao:hover {
+  background: #163E26;
+}
+
+button:focus-visible,
+.botao:focus-visible {
+  outline: 3px solid var(--dourado);
+  outline-offset: 3px;
+}
+
+.whatsapp {
+  background: #168447;
+}
+
+.whatsapp:hover {
+  background: #106B38;
+}
+
+button:disabled {
+  background: #E5E5E5;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+/* PRESTAÇÃO DE CONTAS */
+
+.resumo {
+  background: #F4F8F4;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 18px;
+}
+
+.resumo p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 10px 0;
+  margin: 0;
+  border-bottom: 1px solid #DDE5DD;
+}
+
+.resumo p:last-child {
+  border-bottom: none;
+  font-size: 18px;
+}
+
+.resumo strong {
+  color: var(--verde);
+}
+
+#listaDespesas {
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+/* COLABORADORES */
+
+#listaColaboradores {
+  background: #FFF9EC;
+  padding: 15px;
+  border-radius: 10px;
+  color: var(--verde);
+  text-align: center;
+}
+
+/* GALERIA */
+
+#galeria {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+}
+
+#galeria img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* ÁREA RESTRITA */
+
+.area-restrita {
+  text-align: center;
+  border: 1px dashed var(--verde);
+  box-shadow: none;
+}
+
+.area-restrita p {
+  font-size: 14px;
+}
+
+/* RODAPÉ */
+
+footer {
+  background: var(--vermelho);
+  color: white;
+  text-align: center;
+  padding: 25px 15px;
+  border-top: 5px solid var(--dourado);
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+footer small {
+  display: block;
+  color: var(--dourado);
+  margin-top: 15px;
+}
+
+/* AJUSTES PARA CELULAR */
+
+@media (max-width: 480px) {
+  header {
+    padding: 28px 15px;
+  }
+
+  header h1 {
+    font-size: 25px;
+  }
+
+  header h2 {
+    font-size: 17px;
+  }
+
+  main {
+    padding: 15px 12px;
+  }
+
+  .card {
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  .card h2 {
+    font-size: 20px;
+  }
+
+  button,
+  .botao {
+    font-size: 15px;
+  }
+}
