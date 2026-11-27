@@ -183,12 +183,17 @@ footer {
 
 const CLIENTE_GOOGLE =
   '327140529520-lqfhq1j5arlb876igvqp55f27hlsubu7.apps.googleusercontent.com';
+ 
+const API_ADMIN =
+  'https://script.google.com/macros/s/AKfycbyf_HUxWLY-5eWfWaNnaYyYhl2TgKMEOSvb_dJmCSo1uLgHLnF5nhlty7SuYY5OPOVL/exec';
 
-function receberCredencial(resposta) {
+async function receberCredencial(resposta) {
 
   const mensagem = document.getElementById('mensagem');
 
   if (!resposta || !resposta.credential) {
+
+    mensagem.style.color = '#A51F24';
 
     mensagem.textContent =
       'Não foi possível receber a credencial Google.';
@@ -197,8 +202,63 @@ function receberCredencial(resposta) {
 
   }
 
+  mensagem.style.color = '#215B38';
+
   mensagem.textContent =
-    'Credencial recebida! Validação no servidor ainda não integrada.';
+    'Validando sua conta... Aguarde.';
+
+  try {
+
+    const requisicao = await fetch(API_ADMIN, {
+
+      method: 'POST',
+
+      headers: {
+        'Content-Type': 'text/plain;charset=UTF-8'
+      },
+
+      body: JSON.stringify({
+        acao: 'autenticar',
+        token: resposta.credential
+      }),
+
+      redirect: 'follow'
+
+    });
+
+    if (!requisicao.ok) {
+      throw new Error('Falha na comunicação.');
+    }
+
+    const resultado = await requisicao.json();
+
+    if (!resultado.sucesso) {
+
+      mensagem.style.color = '#A51F24';
+
+      mensagem.textContent =
+        'Acesso negado. Conta não autorizada ou credencial inválida.';
+
+      return;
+
+    }
+
+    mensagem.style.color = '#215B38';
+
+    mensagem.textContent =
+      'Acesso autorizado! Bem-vindo, ' +
+      resultado.nome +
+      '. Perfil: ' +
+      resultado.perfil;
+
+  } catch (erro) {
+
+    mensagem.style.color = '#A51F24';
+
+    mensagem.textContent =
+      'Não foi possível comunicar com o servidor. Tente novamente.';
+
+  }
 
 }
 
