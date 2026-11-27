@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#A51F24">
+
+<title>Central Administrativa - Natal Criança Feliz 2026</title>
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #FFF5DF;
+  color: #26352D;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("natal.png") center center / cover no-repeat;
+  z-index: -1;
+}
+
+header {
+  background: rgba(165,31,36,0.85);
+  color: white;
+  text-align: center;
+  padding: 30px 15px;
+  border-bottom: 5px solid #E8BD63;
+}
+
+header h1 {
+  font-size: 25px;
+  margin: 15px 0;
+}
+
+header p {
+  margin: 8px 0;
+}
+
+.decoracao {
+  font-size: 38px;
+}
+
+.subtitulo {
+  color: #E8BD63;
+  font-weight: bold;
+}
+
+main {
+  max-width: 480px;
+  margin: 40px auto;
+  padding: 15px;
+}
+
+.card {
+  background: rgba(255,255,255,0.92);
+  border-radius: 18px;
+  border-top: 5px solid #E8BD63;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 5px 20px #00000025;
+}
+
+.cadeado {
+  font-size: 55px;
+}
+
+h2 {
+  color: #215B38;
+}
+
+p {
+  line-height: 1.6;
+}
+
+#botaoGoogle {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+#mensagem {
+  font-size: 14px;
+  font-weight: bold;
+  color: #215B38;
+  overflow-wrap: anywhere;
+}
+
+.aviso {
+  font-size: 13px;
+  color: #666;
+}
+
+.voltar {
+  display: block;
+  margin-top: 25px;
+  padding: 14px;
+  background: #215B38;
+  color: white;
+  border-radius: 9px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer {
+  background: #215B38;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 13px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="decoracao">🎄 🏍️ 🎅</div>
+
+  <h1>2º Natal Criança Feliz 2026</h1>
+
+  <p>Motoboys de Garuva - SC</p>
+
+  <p class="subtitulo">
+    Central administrativa
+  </p>
+
+</header>
+
+<main>
+
+  <div class="card">
+
+    <div class="cadeado">🔐</div>
+
+    <h2>Área restrita</h2>
+
+    <p>
+      Acesso exclusivo aos administradores
+      e organizadores autorizados.
+    </p>
+
+    <div id="botaoGoogle"></div>
+
+    <p id="mensagem" role="status">
+      Carregando acesso Google...
+    </p>
+
+    <p class="aviso">
+      Somente contas previamente cadastradas
+      poderão acessar o sistema administrativo.
+    </p>
+
+    <a class="voltar" href="index.html">
+      ← Voltar ao site da campanha
+    </a>
+
+  </div>
+
+</main>
+
+<footer>
+
+  <p>Juntos, levando alegria sobre duas rodas!</p>
+
+  <p>Central administrativa - Versão 1.2</p>
+
+</footer>
+
+<script>
+
+const CLIENTE_GOOGLE =
+  '327140529520-lqfhq1j5arlb876igvqp55f27hlsubu7.apps.googleusercontent.com';
+
+function receberCredencial(resposta) {
+
+  const mensagem = document.getElementById('mensagem');
+
+  if (!resposta || !resposta.credential) {
+
+    mensagem.textContent =
+      'Não foi possível receber a credencial Google.';
+
+    return;
+
+  }
+
+  mensagem.textContent =
+    'Credencial recebida! Validação no servidor ainda não integrada.';
+
+}
+
+window.addEventListener('load', function () {
+
+  const mensagem = document.getElementById('mensagem');
+
+  if (typeof google === 'undefined') {
+
+    mensagem.textContent =
+      'Não foi possível carregar o login Google.';
+
+    return;
+
+  }
+
+  google.accounts.id.initialize({
+
+    client_id: CLIENTE_GOOGLE,
+
+    callback: receberCredencial,
+
+    auto_select: false
+
+  });
+
+  google.accounts.id.renderButton(
+
+    document.getElementById('botaoGoogle'),
+
+    {
+      theme: 'outline',
+      size: 'large',
+      text: 'signin_with',
+      shape: 'rectangular',
+      logo_alignment: 'left'
+    }
+
+  );
+
+  mensagem.textContent =
+    'Entre com sua conta Google.';
+
+});
+
+</script>
+
+</body>
+</html>
